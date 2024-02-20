@@ -1,0 +1,26 @@
+---
+title: "Project proposal for IST 737 group 3AM"
+output: pdf_document
+---
+
+## Project overview
+
+The project entails the creation of an interactive dashboard to delve into a broad topic, using data from [Eurostat](https://ec.europa.eu/eurostat/data/database) (https://ec.europa.eu/eurostat/data/database).
+
+
+### Data source
+
+We have selected Eurostat as our primary data source due to its extensive range of datasets covering a wide array of subjects. Additionally, accessing the data is simple through the use of the `eurostat` package in R.Furthermore, the geographic nature of the data favors the use of visualization techniques such as maps.
+
+### Concept and design
+
+The core concept involves selecting a general topic for the entire dashboard, where each sheet will be dedicated to exploring a specific subtopic. This will include comparative analyses between countries or regions, employing various visualization techniques, such as maps. 
+
+### Visualization and data granularity
+
+For each subtopic, our goal is to identify the most effective visualization method that aligns with the story we aim to communicate. Although most Eurostat data is aggregated at the country level, we need to look for topics that may be available at a more granular level, such as regions or cities to enhance the dashboard. Unfortunately, the data for for these datasets is not always available for every EU country. 
+
+### Proposed topic: Quality of Life
+
+We propose **Quality of Life** as the main theme of our dashboard. This subject is sufficiently broad, encompassing a wide range of subtopics. Eurostat provides a dedicated dataset category on quality of life, featuring various aspects like **Health**, **Education**, and **Living Conditions**, among others. Therefore, we would have the flexibility to include anything that we find valuable and fits the broad narrative of the dashboard.
+
