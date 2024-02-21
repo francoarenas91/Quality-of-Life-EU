@@ -23,14 +23,21 @@ query
 ##1. Material living conditions
 Average rating of satisfaction by domain, sex, age and educational attainment level
 ```{r}
-dataset="ilc_pw01"
+datasets=c("ilc_pw01","ilc_pw05")
 EU_countries<-read_excel("./dictionaries/EU_countries.xlsx" ) %>% 
   rename(country_code=code,country_name=name)
 EU_Countries_names_dict<- setNames(EU_countries$country_name, EU_countries$country_code)
 
-data <-get_eurostat(dataset,
-                    filters=list(geo=pull(EU_countries,code))) #read data for the 27 only
+data_01 <-get_eurostat(datasets[1],
+                    filters=list(geo=pull(EU_countries,country_code))) #read data for the 27 only
+data_02 <-get_eurostat(datasets[2],
+                    filters=list(geo=pull(EU_countries,country_code))) #read data for the 27 only
 
+# join both datasets
+data_02 %>% 
+  pivot_wider(names_from="lev_satis",values_from = "values",names_prefix="share_") %>% 
+  select(-unit) %>% 
+  full_join(data_01,by=c("freq","isced11","indic_wb","sex","age","geo","time"),keep = F) ->data
 
 sheets=c("age","isced11","indic_wb")
 for (sheet in sheets) {
@@ -44,13 +51,14 @@ for (sheet in sheets) {
 
 data %>% 
   mutate(
-    sex = recode(sex,"F"="Female","M"="Male","T"="Total")
+    sex = recode(sex,"F"="Female","M"="Male","T"="Total"),
+    country_name =recode(geo,!!!EU_Countries_names_dict)
     ) %>% 
   select(-c(freq,unit)) %>% 
   rename(indicator=indic_wb,
          education=isced11) -> exporting_data
 
-save(exporting_data, file = paste0("./data/", dataset, ".RData"))
+save(exporting_data, file = paste0("./data/","satisfaction", ".RData"))
 
 ```
 
@@ -76,5 +84,39 @@ data %>%
   
 
 data %>% select(na_item) %>% unique()
+```
+
+level of satisfaction by domain, sex, age and educational attainment level
+```{r}
+dataset="ilc_pw05"
+
+data <-get_eurostat(dataset)
+
+EU_countries<-read_excel("./dictionaries/EU_countries.xlsx" ) %>% 
+  rename(country_code=code,country_name=name)
+EU_Countries_names_dict<- setNames(EU_countries$country_name, EU_countries$country_code)
+
+data <-get_eurostat(dataset,
+                    filters=list(geo=pull(EU_countries,country_code))) #read data for the 27 only
+
+sheets=c("age","isced11","indic_wb")
+for (sheet in sheets) {
+  dict <-read_excel(paste0("./dictionaries/",dataset,".xlsx"),sheet=sheet)
+  replacement_dict <- setNames(dict$name, dict$code)
+  data <- data %>% 
+  mutate(!!sym(sheet) := recode(!!sym(sheet), !!!replacement_dict))
+  ##!!! splits a vector into individual arguments for a function
+  ## !!sym() is a way to convert the string sheet into a symbol that dplyr can understand as a column name.
+}
+
+data %>% 
+  mutate(
+    sex = recode(sex,"F"="Female","M"="Male","T"="Total")
+    ) %>% 
+  select(-c(freq,unit)) %>% 
+  rename(indicator=indic_wb,
+         education=isced11) -> exporting_data
+
+save(exporting_data, file = paste0("./data/", dataset, ".RData"))
 ```
 
