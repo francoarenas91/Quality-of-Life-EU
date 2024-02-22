@@ -33,32 +33,32 @@ data_01 <-get_eurostat(datasets[1],
 data_02 <-get_eurostat(datasets[2],
                     filters=list(geo=pull(EU_countries,country_code))) #read data for the 27 only
 
-# join both datasets
-data_02 %>% 
-  pivot_wider(names_from="lev_satis",values_from = "values",names_prefix="share_") %>% 
-  select(-unit) %>% 
-  full_join(data_01,by=c("freq","isced11","indic_wb","sex","age","geo","time"),keep = F) ->data
+# merge both datasets
+data_01 %>% 
+  # mutate(lev_satis=NA ) %>% 
+  bind_rows(data_02) -> satisfaction
 
 sheets=c("age","isced11","indic_wb")
 for (sheet in sheets) {
-  dict <-read_excel(paste0("./dictionaries/",dataset,".xlsx"),sheet=sheet)
+  dict <-read_excel(paste0("./dictionaries/","ilc_pw05",".xlsx"),sheet=sheet)
   replacement_dict <- setNames(dict$name, dict$code)
-  data <- data %>% 
+  satisfaction <- satisfaction %>% 
   mutate(!!sym(sheet) := recode(!!sym(sheet), !!!replacement_dict))
   ##!!! splits a vector into individual arguments for a function
   ## !!sym() is a way to convert the string sheet into a symbol that dplyr can understand as a column name.
 }
 
-data %>% 
+satisfaction %>% 
   mutate(
     sex = recode(sex,"F"="Female","M"="Male","T"="Total"),
-    country_name =recode(geo,!!!EU_Countries_names_dict)
+    country_name =recode(geo,!!!EU_Countries_names_dict),
+    unit = recode(unit,"RTG"="Rating","PC"="Percentage")
     ) %>% 
-  select(-c(freq,unit)) %>% 
   rename(indicator=indic_wb,
-         education=isced11) -> exporting_data
+         education=isced11) -> satisfaction_export
 
 save(exporting_data, file = paste0("./data/","satisfaction", ".RData"))
+
 
 ```
 
@@ -68,8 +68,8 @@ dataset="nama_10r_2hhinc"
 NUTS2<-read_excel("./dictionaries/NUTS2.xlsx" ) %>% 
   rename(geo=code)
 
-data <-get_eurostat(dataset)
-data %>% 
+income <-get_eurostat(dataset)
+income %>% 
   mutate(country_code=substr(geo,1,2)) %>% 
   filter(country_code %in% EU_countries$country_code) %>% 
   filter(nchar(geo)==4) %>%   #only nuts 2 regions
@@ -78,45 +78,49 @@ data %>%
   filter(na_item=="B5N") %>% #income 
   left_join(NUTS2,by="geo") %>% 
   left_join(EU_countries,by=c("country_code")) %>% 
-  mutate(year = year(TIME_PERIOD)) %>% 
-  select(-c(freq,unit,direct,na_item,TME_PERIOD)) 
+  mutate(date = TIME_PERIOD) %>% 
+  select(-c(direct,na_item)) ->income_export
 
   
 
-data %>% select(na_item) %>% unique()
 ```
-
-level of satisfaction by domain, sex, age and educational attainment level
+underemployment
 ```{r}
-dataset="ilc_pw05"
-
-data <-get_eurostat(dataset)
-
+datasets=c("ilc_lvhl11")
 EU_countries<-read_excel("./dictionaries/EU_countries.xlsx" ) %>% 
   rename(country_code=code,country_name=name)
 EU_Countries_names_dict<- setNames(EU_countries$country_name, EU_countries$country_code)
 
-data <-get_eurostat(dataset,
-                    filters=list(geo=pull(EU_countries,country_code))) #read data for the 27 only
+underemployment <-get_eurostat(datasets[1],
+                    filters=list(geo=pull(EU_countries,country_code)))
 
-sheets=c("age","isced11","indic_wb")
+sheets=c("age","sex")
 for (sheet in sheets) {
-  dict <-read_excel(paste0("./dictionaries/",dataset,".xlsx"),sheet=sheet)
+  dict <-read_excel(paste0("./dictionaries/","decoding_dict",".xlsx"),sheet=sheet)
   replacement_dict <- setNames(dict$name, dict$code)
-  data <- data %>% 
+  underemployment <- underemployment %>% 
   mutate(!!sym(sheet) := recode(!!sym(sheet), !!!replacement_dict))
   ##!!! splits a vector into individual arguments for a function
   ## !!sym() is a way to convert the string sheet into a symbol that dplyr can understand as a column name.
 }
 
-data %>% 
-  mutate(
-    sex = recode(sex,"F"="Female","M"="Male","T"="Total")
-    ) %>% 
-  select(-c(freq,unit)) %>% 
-  rename(indicator=indic_wb,
-         education=isced11) -> exporting_data
-
-save(exporting_data, file = paste0("./data/", dataset, ".RData"))
 ```
+```{r}
+recoding <- funct(dataset,dictionary){
+  sheets<- excel_sheets(paste0("./dictionaries/",dictionary,".xlsx"))
+  
+
+  dict <-read_excel(paste0("./dictionaries/",dictionary,".xlsx"),sheet=sheet)
+  colums<- colnames(dataset)
+  for column_name in column {
+    
+  }
+  replacement_dict <- setNames(dict$name, dict$code)
+  underemployment <- underemployment %>% 
+  mutate(!!sym(sheet) := recode(!!sym(sheet), !!!replacement_dict))
+  ##!!! splits a vector into individual arguments for a function
+  ## !!sym() is a way to convert the string sheet into a symbol that dplyr can understand as a column name.
+}
+```
+
 
