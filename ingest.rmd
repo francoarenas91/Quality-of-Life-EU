@@ -12,12 +12,57 @@ for (el in PAQUETES){
 ```
 
 ```{r}
-query <-search_eurostat(pattern="demo_mlexpec",type='table')
+# Path to the dictionary fil
+file_path <- paste0("./dictionaries/","decoding_dict",".xlsx")
 
-query
+# Get a list of all sheet names
+sheet_names <- excel_sheets(file_path)
+
+# Load each dictionary sheet
+dictionary_df <- lapply(sheet_names, function(sheet) {
+  read_excel(file_path, sheet = sheet, col_types = c("code" = "text", "name" = "text"))
+}) %>% bind_rows()
+dictionary <- setNames(dictionary_df$name, dictionary_df$code)
+
+#load EU country names
+EU_countries<-read_excel("./dictionaries/EU_countries.xlsx" ) %>% 
+  rename(country_code=code,country_name=name)
+EU_Countries_names_dict<- setNames(EU_countries$country_name, EU_countries$country_code)
+
+
+#function to load and save data
+load_data <- function(series,alias,dictionary,sheet_names){
+  #load data
+  data <- get_eurostat(series,
+                    filters=list(geo=pull(EU_countries,country_code))) %>% 
+  filter(!is.na(values)) #filter out NAs
+  #recode columns
+  for (sheet in sheet_names){
+
+    if (sheet %in% colnames(data)){
+        data <- data %>% 
+        mutate(!!sym(sheet) := recode(!!sym(sheet), !!!dictionary))
+        ##!!! splits a vector into individual arguments for a function
+        ## !!sym() is a way to convert the string sheet into a symbol that dplyr can understand as a column name.
+    }
+  }
+  
+  save(data, file = paste0("./data/",alias, ".RData"))
+  print(paste0("series ",series," ", alias, " loaded"))
+  rm(data)
+  gc()
+}
 ```
+
+loading data
 ```{r}
-?get_eurostat()
+statistics<-read_excel("./loading_statistics.xlsx")
+
+for (ii in 1:nrow(statistics)) {
+  load_data(statistics$code[ii],statistics$alias[ii],dictionary,sheet_names)
+}
+
+
 ```
 
 ##1. Material living conditions
@@ -123,4 +168,111 @@ recoding <- funct(dataset,dictionary){
 }
 ```
 
+```{r}
+# Path to the Excel fil
+file_path <- paste0("./dictionaries/","decoding_dict",".xlsx")
+
+# Get a list of all sheet names
+sheet_names <- excel_sheets(file_path)
+
+# Load each sheet into a data frame
+dictionary_df <- lapply(sheet_names, function(sheet) {
+  read_excel(file_path, sheet = sheet, col_types = c("code" = "text", "name" = "text"))
+}) %>% bind_rows()
+dictionary <- setNames(dictionary_df$name, dictionary_df$code)
+
+
+
+```
+
+
+```{r}
+save(satisfaction_export,income_export, file = paste0("./data/","data", ".RData"))
+
+```
+
+NOTA AL CARGAR_ QUITARSE LAS FILAS CON NA EN VALUES PARA AHORRAR ESPACIO
+
+
+material living conditions
+```{r}
+datasets=c("ilc_pw01","ilc_pw05")
+EU_countries<-read_excel("./dictionaries/EU_countries.xlsx" ) %>% 
+  rename(country_code=code,country_name=name)
+EU_Countries_names_dict<- setNames(EU_countries$country_name, EU_countries$country_code)
+
+data_01 <-get_eurostat(datasets[1],
+                    filters=list(geo=pull(EU_countries,country_code))) #read data for the 27 only
+data_02 <-get_eurostat(datasets[2],
+                    filters=list(geo=pull(EU_countries,country_code))) #read data for the 27 only
+
+# merge both datasets
+data_01 %>% 
+  # mutate(lev_satis=NA ) %>% 
+  bind_rows(data_02) %>% 
+  mutate(indicator="satisfaction")-> satisfaction
+
+
+ends_meet <-get_eurostat("ilc_mdes09",
+                    filters=list(geo=pull(EU_countries,country_code))) %>% 
+  mutate(indicator="ends")
+
+
+```
+
+Productive activity
+```{r}
+underemployment <-get_eurostat("ilc_lvhl11",
+                    filters=list(geo=pull(EU_countries,country_code))) %>% 
+  mutate(indicator="underemployment")
+```
+
+health 
+```{r}
+series <-"hlth_silc_10"
+self_health <- get_eurostat(series,
+                    filters=list(geo=pull(EU_countries,country_code)))
+
+series<-"hlth_ehis_pe2e"
+time_health_enhancing <-get_eurostat(series,
+                    filters=list(geo=pull(EU_countries,country_code)))
+```
+
+education
+```{r}
+# care, digital skills is too large
+
+series <-"edat_aes_l21"
+alias <-"foreing_lang"
+foreign_lang<-get_eurostat(series,
+                    filters=list(geo=pull(EU_countries,country_code))) %>% 
+  filter(!is.na(values))
+
+
+
+series <-"edat_aes_l21"
+alias <-"foreing_lang"
+load_data(series,alias,dictionary,sheet_names)
+
+
+```
+leisure and social interactions
+```{r}
+
+series <-"ilc_scp10"
+get_together<-get_eurostat(series,
+                    filters=list(geo=pull(EU_countries,country_code)))
+
+series <-"ilc_scp10"
+ask_help<-get_together<-get_eurostat(series,
+                    filters=list(geo=pull(EU_countries,country_code)))
+
+series <-"ilc_scp01"
+activities<-get_together<-get_eurostat(series,
+                    filters=list(geo=pull(EU_countries,country_code)))
+```
+safety
+```{r}
+
+```
 
