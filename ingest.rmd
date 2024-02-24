@@ -26,13 +26,13 @@ dictionary_df <- lapply(sheet_names, function(sheet) {
 dictionary <- setNames(dictionary_df$name, dictionary_df$code)
 
 #load EU country names
-EU_countries<-read_excel("./dictionaries/EU_countries.xlsx" ) %>% 
+EU_countries<-read_excel("./dictionaries/EU_countries.xlsx") %>% 
   rename(country_code=code,country_name=name)
 EU_Countries_names_dict<- setNames(EU_countries$country_name, EU_countries$country_code)
 
 
-#function to load and save data
-load_data <- function(series,alias,dictionary,sheet_names){
+#function to load and save country data
+load_data_country <- function(series,alias,dictionary,sheet_names){
   #load data
   data <- get_eurostat(series,
                     filters=list(geo=pull(EU_countries,country_code))) %>% 
@@ -48,23 +48,138 @@ load_data <- function(series,alias,dictionary,sheet_names){
     }
   }
   
-  save(data, file = paste0("./data/",alias, ".RData"))
+  save(data, file = paste0("./data/country/",alias, ".RData"))
   print(paste0("series ",series," ", alias, " loaded"))
   rm(data)
   gc()
 }
 ```
 
-loading data
+loading country data
 ```{r}
-statistics<-read_excel("./loading_statistics.xlsx")
+statistics<-read_excel("./loading_statistics.xlsx",sheet="country" )
 
 for (ii in 1:nrow(statistics)) {
-  load_data(statistics$code[ii],statistics$alias[ii],dictionary,sheet_names)
+  load_data:country(statistics$code[ii],statistics$alias[ii],dictionary,sheet_names)
 }
 
+```
+create geo and time table for the star schema in countries
+```{r}
+# List all files in the "./data" directory
+data_files <- list.files("./data/country")
+
+# Exclude "geo_dates" from the list
+data_files <- data_files[data_files != "geo_dates.RData"]
+
+
+geo_dates <- data.frame()
+for (file in data_files) {
+  load(paste0("./data/country/",file))
+  print(file)
+  data %>% 
+    select(geo,time) %>%
+    left_join(EU_countries,by=c("geo"="country_code")) %>% 
+    rbind(geo_dates) %>% 
+    unique() ->geo_dates
+}
+save(geo_dates, file = paste0("./data/country/","geo_dates", ".RData"))
 
 ```
+funtion to load regional data
+```{r}
+load_data_region <- function(series,alias,dictionary,sheet_names){
+  EU_countries<-read_excel("./dictionaries/EU_countries.xlsx") %>% 
+  rename(country_code=code,country_name=name)
+  #load data
+  data <- get_eurostat(series) %>% 
+    filter(!is.na(values)) %>%  #filter out NAs
+    mutate(country_code=substr(geo,1,2)) %>% 
+    filter(country_code %in% EU_countries$country_code) %>% 
+    filter(nchar(geo)==4) %>% 
+    left_join(EU_countries,by=c("country_code"))
+  #recode columns
+  for (sheet in sheet_names){
+
+    if (sheet %in% colnames(data)){
+        data <- data %>% 
+        mutate(!!sym(sheet) := recode(!!sym(sheet), !!!dictionary))
+        ##!!! splits a vector into individual arguments for a function
+        ## !!sym() is a way to convert the string sheet into a symbol that dplyr can understand as a column name.
+    }
+  }
+  
+  save(data, file = paste0("./data/region/",alias, ".RData"))
+  print(paste0("series ",series," ", alias, " loaded"))
+  rm(data)
+  gc()
+}
+```
+
+loading region data
+```{r}
+statistics<-read_excel("./loading_statistics.xlsx",sheet="region" )
+
+for (ii in 1:nrow(statistics)) {
+  load_data_region(statistics$code[ii],statistics$alias[ii],dictionary,sheet_names)
+}
+
+```
+create geo and time table for the star schema in countries
+```{r}
+# List all files in the "./data" directory
+data_files <- list.files("./data/region")
+
+# Exclude "geo_dates" from the list
+data_files <- data_files[data_files != "geo_dates.RData"]
+
+NUTS2<-read_excel("./dictionaries/NUTS2.xlsx" ) %>% 
+  rename(geo=NUTS2)
+
+geo_dates <- data.frame()
+for (file in data_files) {
+  load(paste0("./data/region/",file))
+  print(file)
+  data %>% 
+    select(geo,TIME_PERIOD) %>%
+    left_join(NUTS2,by="geo") %>% 
+    rbind(geo_dates) %>% 
+    unique() ->geo_dates
+}
+save(geo_dates, file = paste0("./data/region/","geo_dates", ".RData"))
+
+```
+
+funtion to load city data
+```{r}
+load_data_region <- function(series,alias,dictionary,sheet_names){
+  EU_countries<-read_excel("./dictionaries/EU_countries.xlsx") %>% 
+  rename(country_code=code,country_name=name)
+  #load data
+  data <- get_eurostat(series) %>%
+    filter(!is.na(values)) %>%  #filter out NAs
+    mutate(country_code=substr(geo,1,2)) %>% 
+    filter(country_code %in% EU_countries$country_code) %>% 
+    filter(nchar(geo)==4) %>% 
+    left_join(EU_countries,by=c("country_code"))
+  #recode columns
+  for (sheet in sheet_names){
+
+    if (sheet %in% colnames(data)){
+        data <- data %>% 
+        mutate(!!sym(sheet) := recode(!!sym(sheet), !!!dictionary))
+        ##!!! splits a vector into individual arguments for a function
+        ## !!sym() is a way to convert the string sheet into a symbol that dplyr can understand as a column name.
+    }
+  }
+  
+  save(data, file = paste0("./data/region/",alias, ".RData"))
+  print(paste0("series ",series," ", alias, " loaded"))
+  rm(data)
+  gc()
+}
+```
+
 NOTE: THESE BELOW ARE OLD LOADS
 
 
@@ -114,7 +229,7 @@ income of households, regional
 ```{r}
 dataset="nama_10r_2hhinc"
 NUTS2<-read_excel("./dictionaries/NUTS2.xlsx" ) %>% 
-  rename(geo=code)
+  rename(geo=NUTS2)
 
 income <-get_eurostat(dataset)
 income %>% 
@@ -126,9 +241,12 @@ income %>%
   filter(na_item=="B5N") %>% #income 
   left_join(NUTS2,by="geo") %>% 
   left_join(EU_countries,by=c("country_code")) %>% 
-  mutate(date = TIME_PERIOD) %>% 
+  # mutate(date = TIME_PERIOD) %>% 
   select(-c(direct,na_item)) ->income_export
 
-  
+save(income_export, file = paste0("./data/",dataset, ".RData"))
+
 
 ```
+
+
