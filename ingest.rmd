@@ -97,7 +97,7 @@ load_data_region <- function(series,alias,dictionary,sheet_names){
     mutate(country_code=substr(geo,1,2)) %>% 
     filter(country_code %in% EU_countries$country_code) %>% 
     filter(nchar(geo)==4) %>% 
-    left_join(EU_countries,by=c("country_code"))
+    select(-country_code) # in is in the date-country data
   #recode columns
   for (sheet in sheet_names){
 
@@ -125,7 +125,7 @@ for (ii in 1:nrow(statistics)) {
 }
 
 ```
-create geo and time table for the star schema in countries
+create geo and time table for the star schema in regions
 ```{r}
 # List all files in the "./data" directory
 data_files <- list.files("./data/region")
@@ -146,22 +146,27 @@ for (file in data_files) {
     rbind(geo_dates) %>% 
     unique() ->geo_dates
 }
+#include country names and codes
+geo_dates %>% 
+  mutate(country_code = substr(geo,1,2)) %>% 
+  left_join(EU_countries,by="country_code") -> geo_dates
 save(geo_dates, file = paste0("./data/region/","geo_dates", ".RData"))
 
 ```
 
 funtion to load city data
 ```{r}
-load_data_region <- function(series,alias,dictionary,sheet_names){
+load_data_city <- function(series,alias,dictionary,sheet_names){
   EU_countries<-read_excel("./dictionaries/EU_countries.xlsx") %>% 
   rename(country_code=code,country_name=name)
   #load data
   data <- get_eurostat(series) %>%
     filter(!is.na(values)) %>%  #filter out NAs
-    mutate(country_code=substr(geo,1,2)) %>% 
+    mutate(country_code=substr(cities,1,2)) %>% 
     filter(country_code %in% EU_countries$country_code) %>% 
-    filter(nchar(geo)==4) %>% 
-    left_join(EU_countries,by=c("country_code"))
+    filter(nchar(cities)==6) %>% 
+    select(-country_code) %>% 
+    rename(city_code=cities)
   #recode columns
   for (sheet in sheet_names){
 
@@ -173,12 +178,53 @@ load_data_region <- function(series,alias,dictionary,sheet_names){
     }
   }
   
-  save(data, file = paste0("./data/region/",alias, ".RData"))
+  save(data, file = paste0("./data/city/",alias, ".RData"))
   print(paste0("series ",series," ", alias, " loaded"))
   rm(data)
   gc()
 }
+
 ```
+load city data
+```{r}
+
+statistics<-read_excel("./loading_statistics.xlsx",sheet="city" )
+
+for (ii in 1:nrow(statistics)) {
+  load_data_city(statistics$code[ii],statistics$alias[ii],dictionary,sheet_names)
+}
+
+
+```
+create geo and time table for the star schema in cities
+```{r}
+# List all files in the "./data" directory
+data_files <- list.files("./data/city")
+
+# Exclude "geo_dates" from the list
+data_files <- data_files[data_files != "geo_dates.RData"]
+
+cities<-read_excel("./dictionaries/cities.xlsx" ) %>% 
+  rename(city_name=NAME)
+
+geo_dates <- data.frame()
+for (file in data_files) {
+  load(paste0("./data/city/",file))
+  print(file)
+  data %>% 
+    select(city_code,TIME_PERIOD) %>%
+    left_join(cities,by=c("city_code"="CODE")) %>% 
+    rbind(geo_dates) %>% 
+    unique() ->geo_dates
+}
+#include country names and codes
+geo_dates %>% 
+  mutate(country_code = substr(city_code,1,2)) %>% 
+  left_join(EU_countries,by="country_code") -> geo_dates
+save(geo_dates, file = paste0("./data/city/","geo_dates", ".RData"))
+
+```
+
 
 NOTE: THESE BELOW ARE OLD LOADS
 
