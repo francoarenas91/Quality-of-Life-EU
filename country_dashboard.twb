@@ -22,367 +22,6 @@
     </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
   </_.fcp.AnimationOnByDefault.false...style>
   <datasources>
-    <datasource caption='region_data' inline='true' name='federated.0m1qf021ngu4lq199qvkn02knoxn' version='18.1'>
-      <connection class='federated'>
-        <named-connections>
-          <named-connection caption='geo_dates' name='stat-direct.1pdfkm21soii8n16rlhqy1sggv47'>
-            <connection batch-size='' class='stat-direct' directory='C:/Users/franc/OneDrive/MADS/IST737/project/data/region' encoding-error-limit='' filename='geo_dates.RData' password='' server='' source-charset='' />
-          </named-connection>
-        </named-connections>
-        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
-        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
-          <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
-          <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='physicians.RData' table='[physicians.RData]' type='table' />
-          <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='road_accidents.RData' table='[road_accidents.RData]' type='table' />
-        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
-        <cols>
-          <map key='[NUTS2_name]' value='[geo_dates.RData].[NUTS2_name]' />
-          <map key='[TIME_PERIOD (physicians.RData)]' value='[physicians.RData].[TIME_PERIOD]' />
-          <map key='[TIME_PERIOD (road_accidents.RData)]' value='[road_accidents.RData].[TIME_PERIOD]' />
-          <map key='[TIME_PERIOD]' value='[geo_dates.RData].[TIME_PERIOD]' />
-          <map key='[country_code (road_accidents.RData)]' value='[road_accidents.RData].[country_code]' />
-          <map key='[country_code]' value='[physicians.RData].[country_code]' />
-          <map key='[country_name (road_accidents.RData)]' value='[road_accidents.RData].[country_name]' />
-          <map key='[country_name]' value='[physicians.RData].[country_name]' />
-          <map key='[freq (road_accidents.RData)]' value='[road_accidents.RData].[freq]' />
-          <map key='[freq]' value='[physicians.RData].[freq]' />
-          <map key='[geo (physicians.RData)]' value='[physicians.RData].[geo]' />
-          <map key='[geo (road_accidents.RData)]' value='[road_accidents.RData].[geo]' />
-          <map key='[geo]' value='[geo_dates.RData].[geo]' />
-          <map key='[rownames (physicians.RData)]' value='[physicians.RData].[rownames]' />
-          <map key='[rownames (road_accidents.RData)]' value='[road_accidents.RData].[rownames]' />
-          <map key='[rownames]' value='[geo_dates.RData].[rownames]' />
-          <map key='[unit (road_accidents.RData)]' value='[road_accidents.RData].[unit]' />
-          <map key='[unit]' value='[physicians.RData].[unit]' />
-          <map key='[values (road_accidents.RData)]' value='[road_accidents.RData].[values]' />
-          <map key='[values]' value='[physicians.RData].[values]' />
-          <map key='[victim]' value='[road_accidents.RData].[victim]' />
-        </cols>
-        <metadata-records>
-          <metadata-record class='column'>
-            <remote-name>rownames</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[rownames]</local-name>
-            <parent-name>[geo_dates.RData]</parent-name>
-            <remote-alias>rownames</remote-alias>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>geo</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[geo]</local-name>
-            <parent-name>[geo_dates.RData]</parent-name>
-            <remote-alias>geo</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>TIME_PERIOD</remote-name>
-            <remote-type>133</remote-type>
-            <local-name>[TIME_PERIOD]</local-name>
-            <parent-name>[geo_dates.RData]</parent-name>
-            <remote-alias>TIME_PERIOD</remote-alias>
-            <local-type>date</local-type>
-            <aggregation>Year</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>NUTS2_name</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[NUTS2_name]</local-name>
-            <parent-name>[geo_dates.RData]</parent-name>
-            <remote-alias>NUTS2_name</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>rownames</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[rownames (physicians.RData)]</local-name>
-            <parent-name>[physicians.RData]</parent-name>
-            <remote-alias>rownames</remote-alias>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>freq</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[freq]</local-name>
-            <parent-name>[physicians.RData]</parent-name>
-            <remote-alias>freq</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>unit</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[unit]</local-name>
-            <parent-name>[physicians.RData]</parent-name>
-            <remote-alias>unit</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>geo</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[geo (physicians.RData)]</local-name>
-            <parent-name>[physicians.RData]</parent-name>
-            <remote-alias>geo</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>TIME_PERIOD</remote-name>
-            <remote-type>133</remote-type>
-            <local-name>[TIME_PERIOD (physicians.RData)]</local-name>
-            <parent-name>[physicians.RData]</parent-name>
-            <remote-alias>TIME_PERIOD</remote-alias>
-            <local-type>date</local-type>
-            <aggregation>Year</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>values</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[values]</local-name>
-            <parent-name>[physicians.RData]</parent-name>
-            <remote-alias>values</remote-alias>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>country_code</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[country_code]</local-name>
-            <parent-name>[physicians.RData]</parent-name>
-            <remote-alias>country_code</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>country_name</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[country_name]</local-name>
-            <parent-name>[physicians.RData]</parent-name>
-            <remote-alias>country_name</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>rownames</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[rownames (road_accidents.RData)]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>rownames</remote-alias>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>freq</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[freq (road_accidents.RData)]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>freq</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>victim</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[victim]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>victim</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>unit</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[unit (road_accidents.RData)]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>unit</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>geo</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[geo (road_accidents.RData)]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>geo</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>TIME_PERIOD</remote-name>
-            <remote-type>133</remote-type>
-            <local-name>[TIME_PERIOD (road_accidents.RData)]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>TIME_PERIOD</remote-alias>
-            <local-type>date</local-type>
-            <aggregation>Year</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>values</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[values (road_accidents.RData)]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>values</remote-alias>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>country_code</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[country_code (road_accidents.RData)]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>country_code</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>country_name</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[country_name (road_accidents.RData)]</local-name>
-            <parent-name>[road_accidents.RData]</parent-name>
-            <remote-alias>country_name</remote-alias>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='binary' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-        </metadata-records>
-      </connection>
-      <aliases enabled='yes' />
-      <column caption='NUTS2 name' datatype='string' name='[NUTS2_name]' role='dimension' type='nominal' />
-      <column caption='TIME PERIOD (physicians.RData)' datatype='date' name='[TIME_PERIOD (physicians.RData)]' role='dimension' type='ordinal' />
-      <column caption='TIME PERIOD (road accidents.RData)' datatype='date' name='[TIME_PERIOD (road_accidents.RData)]' role='dimension' type='ordinal' />
-      <column caption='Time Period' datatype='date' name='[TIME_PERIOD]' role='dimension' type='ordinal' />
-      <_.fcp.ObjectModelTableType.true...column caption='geo_dates.RData' datatype='table' name='[__tableau_internal_object_id__].[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]' role='measure' type='quantitative' />
-      <_.fcp.ObjectModelTableType.true...column caption='physicians.RData' datatype='table' name='[__tableau_internal_object_id__].[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]' role='measure' type='quantitative' />
-      <_.fcp.ObjectModelTableType.true...column caption='road_accidents.RData' datatype='table' name='[__tableau_internal_object_id__].[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]' role='measure' type='quantitative' />
-      <column caption='country code (road accidents.RData)' datatype='string' name='[country_code (road_accidents.RData)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-      <column caption='Country Code' datatype='string' name='[country_code]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-      <column caption='country name (road accidents.RData)' datatype='string' name='[country_name (road_accidents.RData)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-      <column caption='Country Name' datatype='string' name='[country_name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-      <column caption='freq (road accidents.RData)' datatype='string' name='[freq (road_accidents.RData)]' role='dimension' type='nominal' />
-      <column caption='Freq' datatype='string' name='[freq]' role='dimension' type='nominal' />
-      <column caption='geo (road accidents.RData)' datatype='string' name='[geo (road_accidents.RData)]' role='dimension' type='nominal' />
-      <column caption='Geo' datatype='string' name='[geo]' role='dimension' semantic-role='[NUTS].[Name]' type='nominal' />
-      <column caption='rownames (road accidents.RData)' datatype='integer' name='[rownames (road_accidents.RData)]' role='measure' type='quantitative' />
-      <column caption='Rownames' datatype='integer' name='[rownames]' role='measure' type='quantitative' />
-      <column caption='unit (road accidents.RData)' datatype='string' name='[unit (road_accidents.RData)]' role='dimension' type='nominal' />
-      <column caption='Unit' datatype='string' name='[unit]' role='dimension' type='nominal' />
-      <column caption='values (road accidents.RData)' datatype='real' name='[values (road_accidents.RData)]' role='measure' type='quantitative' />
-      <column caption='Values' datatype='real' name='[values]' role='measure' type='quantitative' />
-      <column caption='Victim' datatype='string' name='[victim]' role='dimension' type='nominal' />
-      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
-      <semantic-values>
-        <semantic-value key='[Country].[Name]' value='&quot;Spain&quot;' />
-      </semantic-values>
-      <date-options start-of-week='monday' />
-      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
-        <objects>
-          <object caption='geo_dates.RData' id='geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800'>
-            <properties context=''>
-              <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
-            </properties>
-          </object>
-          <object caption='physicians.RData' id='physicians.RData_D409308C22B24C68BC4C5A36576E55EA'>
-            <properties context=''>
-              <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='physicians.RData' table='[physicians.RData]' type='table' />
-            </properties>
-          </object>
-          <object caption='road_accidents.RData' id='road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35'>
-            <properties context=''>
-              <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='road_accidents.RData' table='[road_accidents.RData]' type='table' />
-            </properties>
-          </object>
-        </objects>
-        <relationships>
-          <relationship>
-            <expression op='AND'>
-              <expression op='='>
-                <expression op='[geo]' />
-                <expression op='[geo (physicians.RData)]' />
-              </expression>
-              <expression op='='>
-                <expression op='[TIME_PERIOD]' />
-                <expression op='[TIME_PERIOD (physicians.RData)]' />
-              </expression>
-            </expression>
-            <first-end-point object-id='geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800' unique-key='true' />
-            <second-end-point object-id='physicians.RData_D409308C22B24C68BC4C5A36576E55EA' />
-          </relationship>
-          <relationship>
-            <expression op='AND'>
-              <expression op='='>
-                <expression op='[geo]' />
-                <expression op='[geo (road_accidents.RData)]' />
-              </expression>
-              <expression op='='>
-                <expression op='[TIME_PERIOD]' />
-                <expression op='[TIME_PERIOD (road_accidents.RData)]' />
-              </expression>
-            </expression>
-            <first-end-point object-id='geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800' unique-key='true' />
-            <second-end-point object-id='road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35' />
-          </relationship>
-        </relationships>
-      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
-    </datasource>
     <datasource caption='country data' inline='true' name='federated.0dqo4gp1bw9vp81gbj4w30ulh33x' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -943,6 +582,702 @@
         </relationships>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
+    <datasource caption='city data' inline='true' name='federated.0wyeh3p1rd106b1g75pnn0q7e2uf' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='geo_dates' name='stat-direct.1h5mfn71asfr8y15i8nyy0elq92p'>
+            <connection batch-size='' class='stat-direct' directory='C:/Users/franc/OneDrive/MADS/IST737/project/data/city' encoding-error-limit='' filename='geo_dates.RData' password='' server='' source-charset='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='stat-direct.1h5mfn71asfr8y15i8nyy0elq92p' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='stat-direct.1h5mfn71asfr8y15i8nyy0elq92p' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
+          <relation connection='stat-direct.1h5mfn71asfr8y15i8nyy0elq92p' name='living_cond.RData' table='[living_cond.RData]' type='table' />
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[TIME_PERIOD (living_cond.RData)]' value='[living_cond.RData].[TIME_PERIOD]' />
+          <map key='[TIME_PERIOD]' value='[geo_dates.RData].[TIME_PERIOD]' />
+          <map key='[city_code (living_cond.RData)]' value='[living_cond.RData].[city_code]' />
+          <map key='[city_code]' value='[geo_dates.RData].[city_code]' />
+          <map key='[city_name]' value='[geo_dates.RData].[city_name]' />
+          <map key='[country_code]' value='[geo_dates.RData].[country_code]' />
+          <map key='[country_name]' value='[geo_dates.RData].[country_name]' />
+          <map key='[freq]' value='[living_cond.RData].[freq]' />
+          <map key='[indic_ur]' value='[living_cond.RData].[indic_ur]' />
+          <map key='[rownames (living_cond.RData)]' value='[living_cond.RData].[rownames]' />
+          <map key='[rownames]' value='[geo_dates.RData].[rownames]' />
+          <map key='[values]' value='[living_cond.RData].[values]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>rownames</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rownames]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>rownames</remote-alias>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city_code]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>city_code</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TIME_PERIOD</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[TIME_PERIOD]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>TIME_PERIOD</remote-alias>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city_name]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>city_name</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_code]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>country_code</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_name]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>country_name</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rownames</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rownames (living_cond.RData)]</local-name>
+            <parent-name>[living_cond.RData]</parent-name>
+            <remote-alias>rownames</remote-alias>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>freq</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[freq]</local-name>
+            <parent-name>[living_cond.RData]</parent-name>
+            <remote-alias>freq</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>indic_ur</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[indic_ur]</local-name>
+            <parent-name>[living_cond.RData]</parent-name>
+            <remote-alias>indic_ur</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city_code (living_cond.RData)]</local-name>
+            <parent-name>[living_cond.RData]</parent-name>
+            <remote-alias>city_code</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TIME_PERIOD</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[TIME_PERIOD (living_cond.RData)]</local-name>
+            <parent-name>[living_cond.RData]</parent-name>
+            <remote-alias>TIME_PERIOD</remote-alias>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>values</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[values]</local-name>
+            <parent-name>[living_cond.RData]</parent-name>
+            <remote-alias>values</remote-alias>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='TIME PERIOD (living cond.RData)' datatype='date' name='[TIME_PERIOD (living_cond.RData)]' role='dimension' type='ordinal' />
+      <column caption='Time Period' datatype='date' name='[TIME_PERIOD]' role='dimension' type='ordinal' />
+      <_.fcp.ObjectModelTableType.true...column caption='geo_dates.RData' datatype='table' name='[__tableau_internal_object_id__].[geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='living_cond.RData' datatype='table' name='[__tableau_internal_object_id__].[living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E]' role='measure' type='quantitative' />
+      <column caption='city code (living cond.RData)' datatype='string' name='[city_code (living_cond.RData)]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='City Code' datatype='string' name='[city_code]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='City Name' datatype='string' name='[city_name]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Country Code' datatype='string' name='[country_code]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country Name' datatype='string' name='[country_name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Freq' datatype='string' name='[freq]' role='dimension' type='nominal' />
+      <column caption='Indic Ur' datatype='string' name='[indic_ur]' role='dimension' type='nominal' />
+      <column caption='rownames (living cond.RData)' datatype='integer' name='[rownames (living_cond.RData)]' role='measure' type='quantitative' />
+      <column caption='Rownames' datatype='integer' name='[rownames]' role='measure' type='quantitative' />
+      <column caption='Values' datatype='real' name='[values]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Spain&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='geo_dates.RData' id='geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9'>
+            <properties context=''>
+              <relation connection='stat-direct.1h5mfn71asfr8y15i8nyy0elq92p' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
+            </properties>
+          </object>
+          <object caption='living_cond.RData' id='living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E'>
+            <properties context=''>
+              <relation connection='stat-direct.1h5mfn71asfr8y15i8nyy0elq92p' name='living_cond.RData' table='[living_cond.RData]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[city_code]' />
+                <expression op='[city_code (living_cond.RData)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[TIME_PERIOD]' />
+                <expression op='[TIME_PERIOD (living_cond.RData)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='geo_dates.RData_4B7AE4A0149E4096B76709EE75F4A7F9' unique-key='true' />
+            <second-end-point object-id='living_cond.RData_F90B19FBA7334CBD98F896C2B86B105E' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+    <datasource caption='region_data' inline='true' name='federated.0m1qf021ngu4lq199qvkn02knoxn' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='geo_dates' name='stat-direct.1pdfkm21soii8n16rlhqy1sggv47'>
+            <connection batch-size='' class='stat-direct' directory='C:/Users/franc/OneDrive/MADS/IST737/project/data/region' encoding-error-limit='' filename='geo_dates.RData' password='' server='' source-charset='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
+          <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='nama_10r_2hhinc.RData' table='[nama_10r_2hhinc.RData]' type='table' />
+          <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='physicians.RData' table='[physicians.RData]' type='table' />
+          <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='road_accidents.RData' table='[road_accidents.RData]' type='table' />
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[NUTS2_name (nama_10r_2hhinc.RData)]' value='[nama_10r_2hhinc.RData].[NUTS2_name]' />
+          <map key='[NUTS2_name]' value='[geo_dates.RData].[NUTS2_name]' />
+          <map key='[TIME_PERIOD (nama_10r_2hhinc.RData)]' value='[nama_10r_2hhinc.RData].[TIME_PERIOD]' />
+          <map key='[TIME_PERIOD (physicians.RData)]' value='[physicians.RData].[TIME_PERIOD]' />
+          <map key='[TIME_PERIOD (road_accidents.RData)]' value='[road_accidents.RData].[TIME_PERIOD]' />
+          <map key='[TIME_PERIOD]' value='[geo_dates.RData].[TIME_PERIOD]' />
+          <map key='[country_code (geo_dates.RData)]' value='[geo_dates.RData].[country_code]' />
+          <map key='[country_code]' value='[nama_10r_2hhinc.RData].[country_code]' />
+          <map key='[country_name (geo_dates.RData)]' value='[geo_dates.RData].[country_name]' />
+          <map key='[country_name]' value='[nama_10r_2hhinc.RData].[country_name]' />
+          <map key='[freq (nama_10r_2hhinc.RData)]' value='[nama_10r_2hhinc.RData].[freq]' />
+          <map key='[freq (road_accidents.RData)]' value='[road_accidents.RData].[freq]' />
+          <map key='[freq]' value='[physicians.RData].[freq]' />
+          <map key='[geo (nama_10r_2hhinc.RData)]' value='[nama_10r_2hhinc.RData].[geo]' />
+          <map key='[geo (physicians.RData)]' value='[physicians.RData].[geo]' />
+          <map key='[geo (road_accidents.RData)]' value='[road_accidents.RData].[geo]' />
+          <map key='[geo]' value='[geo_dates.RData].[geo]' />
+          <map key='[rownames (nama_10r_2hhinc.RData)]' value='[nama_10r_2hhinc.RData].[rownames]' />
+          <map key='[rownames (physicians.RData)]' value='[physicians.RData].[rownames]' />
+          <map key='[rownames (road_accidents.RData)]' value='[road_accidents.RData].[rownames]' />
+          <map key='[rownames]' value='[geo_dates.RData].[rownames]' />
+          <map key='[unit (nama_10r_2hhinc.RData)]' value='[nama_10r_2hhinc.RData].[unit]' />
+          <map key='[unit (road_accidents.RData)]' value='[road_accidents.RData].[unit]' />
+          <map key='[unit]' value='[physicians.RData].[unit]' />
+          <map key='[values (nama_10r_2hhinc.RData)]' value='[nama_10r_2hhinc.RData].[values]' />
+          <map key='[values (road_accidents.RData)]' value='[road_accidents.RData].[values]' />
+          <map key='[values]' value='[physicians.RData].[values]' />
+          <map key='[victim]' value='[road_accidents.RData].[victim]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>rownames</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rownames]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>rownames</remote-alias>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>geo</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[geo]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>geo</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TIME_PERIOD</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[TIME_PERIOD]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>TIME_PERIOD</remote-alias>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NUTS2_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[NUTS2_name]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>NUTS2_name</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_code (geo_dates.RData)]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>country_code</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_name (geo_dates.RData)]</local-name>
+            <parent-name>[geo_dates.RData]</parent-name>
+            <remote-alias>country_name</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rownames</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rownames (nama_10r_2hhinc.RData)]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>rownames</remote-alias>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>freq</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[freq (nama_10r_2hhinc.RData)]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>freq</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[unit (nama_10r_2hhinc.RData)]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>unit</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>geo</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[geo (nama_10r_2hhinc.RData)]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>geo</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TIME_PERIOD</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[TIME_PERIOD (nama_10r_2hhinc.RData)]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>TIME_PERIOD</remote-alias>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>values</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[values (nama_10r_2hhinc.RData)]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>values</remote-alias>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_code]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>country_code</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NUTS2_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[NUTS2_name (nama_10r_2hhinc.RData)]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>NUTS2_name</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_name]</local-name>
+            <parent-name>[nama_10r_2hhinc.RData]</parent-name>
+            <remote-alias>country_name</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rownames</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rownames (physicians.RData)]</local-name>
+            <parent-name>[physicians.RData]</parent-name>
+            <remote-alias>rownames</remote-alias>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>freq</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[freq]</local-name>
+            <parent-name>[physicians.RData]</parent-name>
+            <remote-alias>freq</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[unit]</local-name>
+            <parent-name>[physicians.RData]</parent-name>
+            <remote-alias>unit</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>geo</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[geo (physicians.RData)]</local-name>
+            <parent-name>[physicians.RData]</parent-name>
+            <remote-alias>geo</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TIME_PERIOD</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[TIME_PERIOD (physicians.RData)]</local-name>
+            <parent-name>[physicians.RData]</parent-name>
+            <remote-alias>TIME_PERIOD</remote-alias>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>values</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[values]</local-name>
+            <parent-name>[physicians.RData]</parent-name>
+            <remote-alias>values</remote-alias>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rownames</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rownames (road_accidents.RData)]</local-name>
+            <parent-name>[road_accidents.RData]</parent-name>
+            <remote-alias>rownames</remote-alias>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>freq</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[freq (road_accidents.RData)]</local-name>
+            <parent-name>[road_accidents.RData]</parent-name>
+            <remote-alias>freq</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>victim</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[victim]</local-name>
+            <parent-name>[road_accidents.RData]</parent-name>
+            <remote-alias>victim</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[unit (road_accidents.RData)]</local-name>
+            <parent-name>[road_accidents.RData]</parent-name>
+            <remote-alias>unit</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>geo</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[geo (road_accidents.RData)]</local-name>
+            <parent-name>[road_accidents.RData]</parent-name>
+            <remote-alias>geo</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TIME_PERIOD</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[TIME_PERIOD (road_accidents.RData)]</local-name>
+            <parent-name>[road_accidents.RData]</parent-name>
+            <remote-alias>TIME_PERIOD</remote-alias>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>values</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[values (road_accidents.RData)]</local-name>
+            <parent-name>[road_accidents.RData]</parent-name>
+            <remote-alias>values</remote-alias>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='NUTS2 name (nama 10r 2hhinc.RData)' datatype='string' name='[NUTS2_name (nama_10r_2hhinc.RData)]' role='dimension' semantic-role='[NUTS].[Name]' type='nominal' />
+      <column caption='NUTS2 name' datatype='string' name='[NUTS2_name]' role='dimension' type='nominal' />
+      <column caption='TIME PERIOD (nama 10r 2hhinc.RData)' datatype='date' name='[TIME_PERIOD (nama_10r_2hhinc.RData)]' role='dimension' type='ordinal' />
+      <column caption='TIME PERIOD (physicians.RData)' datatype='date' name='[TIME_PERIOD (physicians.RData)]' role='dimension' type='ordinal' />
+      <column caption='TIME PERIOD (road accidents.RData)' datatype='date' name='[TIME_PERIOD (road_accidents.RData)]' role='dimension' type='ordinal' />
+      <column caption='Time Period' datatype='date' name='[TIME_PERIOD]' role='dimension' type='ordinal' />
+      <_.fcp.ObjectModelTableType.true...column caption='geo_dates.RData' datatype='table' name='[__tableau_internal_object_id__].[geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='nama_10r_2hhinc.RData' datatype='table' name='[__tableau_internal_object_id__].[nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='physicians.RData' datatype='table' name='[__tableau_internal_object_id__].[physicians.RData_D409308C22B24C68BC4C5A36576E55EA]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='road_accidents.RData' datatype='table' name='[__tableau_internal_object_id__].[road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35]' role='measure' type='quantitative' />
+      <column datatype='string' name='[country_code (geo_dates.RData)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country Code' datatype='string' name='[country_code]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column datatype='string' name='[country_name (geo_dates.RData)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country Name' datatype='string' name='[country_name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='freq (nama 10r 2hhinc.RData)' datatype='string' name='[freq (nama_10r_2hhinc.RData)]' role='dimension' type='nominal' />
+      <column caption='freq (road accidents.RData)' datatype='string' name='[freq (road_accidents.RData)]' role='dimension' type='nominal' />
+      <column caption='Freq' datatype='string' name='[freq]' role='dimension' type='nominal' />
+      <column caption='geo (nama 10r 2hhinc.RData)' datatype='string' name='[geo (nama_10r_2hhinc.RData)]' role='dimension' type='nominal' />
+      <column caption='geo (road accidents.RData)' datatype='string' name='[geo (road_accidents.RData)]' role='dimension' type='nominal' />
+      <column caption='Geo' datatype='string' name='[geo]' role='dimension' semantic-role='[NUTS].[Name]' type='nominal' />
+      <column caption='rownames (nama 10r 2hhinc.RData)' datatype='integer' name='[rownames (nama_10r_2hhinc.RData)]' role='measure' type='quantitative' />
+      <column caption='rownames (road accidents.RData)' datatype='integer' name='[rownames (road_accidents.RData)]' role='measure' type='quantitative' />
+      <column caption='Rownames' datatype='integer' name='[rownames]' role='measure' type='quantitative' />
+      <column caption='unit (nama 10r 2hhinc.RData)' datatype='string' name='[unit (nama_10r_2hhinc.RData)]' role='dimension' type='nominal' />
+      <column caption='unit (road accidents.RData)' datatype='string' name='[unit (road_accidents.RData)]' role='dimension' type='nominal' />
+      <column caption='Unit' datatype='string' name='[unit]' role='dimension' type='nominal' />
+      <column caption='values (nama 10r 2hhinc.RData)' datatype='real' name='[values (nama_10r_2hhinc.RData)]' role='measure' type='quantitative' />
+      <column caption='values (road accidents.RData)' datatype='real' name='[values (road_accidents.RData)]' role='measure' type='quantitative' />
+      <column caption='Values' datatype='real' name='[values]' role='measure' type='quantitative' />
+      <column caption='Victim' datatype='string' name='[victim]' role='dimension' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Spain&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='geo_dates.RData' id='geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800'>
+            <properties context=''>
+              <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='geo_dates.RData' table='[geo_dates.RData]' type='table' />
+            </properties>
+          </object>
+          <object caption='nama_10r_2hhinc.RData' id='nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5'>
+            <properties context=''>
+              <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='nama_10r_2hhinc.RData' table='[nama_10r_2hhinc.RData]' type='table' />
+            </properties>
+          </object>
+          <object caption='physicians.RData' id='physicians.RData_D409308C22B24C68BC4C5A36576E55EA'>
+            <properties context=''>
+              <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='physicians.RData' table='[physicians.RData]' type='table' />
+            </properties>
+          </object>
+          <object caption='road_accidents.RData' id='road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35'>
+            <properties context=''>
+              <relation connection='stat-direct.1pdfkm21soii8n16rlhqy1sggv47' name='road_accidents.RData' table='[road_accidents.RData]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[geo]' />
+                <expression op='[geo (nama_10r_2hhinc.RData)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[TIME_PERIOD]' />
+                <expression op='[TIME_PERIOD (nama_10r_2hhinc.RData)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800' unique-key='true' />
+            <second-end-point object-id='nama_10r_2hhinc.RData_51112019D5734A1BB8EAE132CED808A5' />
+          </relationship>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[geo]' />
+                <expression op='[geo (physicians.RData)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[TIME_PERIOD]' />
+                <expression op='[TIME_PERIOD (physicians.RData)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800' unique-key='true' />
+            <second-end-point object-id='physicians.RData_D409308C22B24C68BC4C5A36576E55EA' />
+          </relationship>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[geo]' />
+                <expression op='[geo (road_accidents.RData)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[TIME_PERIOD]' />
+                <expression op='[TIME_PERIOD (road_accidents.RData)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='geo_dates.RData_4A0E965AF1BA4673B5696261D3E07800' unique-key='true' />
+            <second-end-point object-id='road_accidents.RData_0C1BA7E51A86425E9BFCDB5A90D87B35' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
   </datasources>
   <mapsources>
     <mapsource name='Tableau' />
@@ -1093,9 +1428,118 @@
       </table>
       <simple-id uuid='{5F9B334B-D507-4D05-BC37-F45069A6A85F}' />
     </worksheet>
+    <worksheet name='Sheet 3'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='city data' name='federated.0wyeh3p1rd106b1g75pnn0q7e2uf' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0wyeh3p1rd106b1g75pnn0q7e2uf'>
+            <column caption='Time Period' datatype='date' name='[TIME_PERIOD]' role='dimension' type='ordinal' />
+            <column-instance column='[values]' derivation='Avg' name='[avg:values:qk]' pivot='key' type='quantitative' />
+            <column caption='City Name' datatype='string' name='[city_name]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Indic Ur' datatype='string' name='[indic_ur]' role='dimension' type='nominal' />
+            <column-instance column='[city_name]' derivation='None' name='[none:city_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[indic_ur]' derivation='None' name='[none:indic_ur:nk]' pivot='key' type='nominal' />
+            <column-instance column='[values]' derivation='Sum' name='[sum:values:qk]' pivot='key' type='quantitative' />
+            <column caption='Values' datatype='real' name='[values]' role='measure' type='quantitative' />
+            <column-instance column='[TIME_PERIOD]' derivation='Year' name='[yr:TIME_PERIOD:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[none:indic_ur:nk]'>
+            <groupfilter function='member' level='[none:indic_ur:nk]' member='&quot;Average annual rent for housing per m² - EUR&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[yr:TIME_PERIOD:ok]'>
+            <groupfilter function='member' level='[yr:TIME_PERIOD:ok]' member='2018' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[yr:TIME_PERIOD:ok]</column>
+            <column>[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[none:indic_ur:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[sum:values:qk]' />
+              <size column='[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[avg:values:qk]' />
+              <lod column='[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[none:city_name:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[Latitude (generated)]</rows>
+        <cols>[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{79C0A39F-02CC-4F34-84B1-586ECDD54936}' />
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='region_data' name='federated.0m1qf021ngu4lq199qvkn02knoxn' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0m1qf021ngu4lq199qvkn02knoxn'>
+            <column caption='NUTS2 name (nama 10r 2hhinc.RData)' datatype='string' name='[NUTS2_name (nama_10r_2hhinc.RData)]' role='dimension' semantic-role='[NUTS].[Name]' type='nominal' />
+            <column caption='TIME PERIOD (nama 10r 2hhinc.RData)' datatype='date' name='[TIME_PERIOD (nama_10r_2hhinc.RData)]' role='dimension' type='ordinal' />
+            <column caption='freq (nama 10r 2hhinc.RData)' datatype='string' name='[freq (nama_10r_2hhinc.RData)]' role='dimension' type='nominal' />
+            <column-instance column='[NUTS2_name (nama_10r_2hhinc.RData)]' derivation='None' name='[none:NUTS2_name (nama_10r_2hhinc.RData):nk]' pivot='key' type='nominal' />
+            <column-instance column='[freq (nama_10r_2hhinc.RData)]' derivation='None' name='[none:freq (nama_10r_2hhinc.RData):nk]' pivot='key' type='nominal' />
+            <column-instance column='[TIME_PERIOD (nama_10r_2hhinc.RData)]' derivation='Year' name='[yr:TIME_PERIOD (nama_10r_2hhinc.RData):ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0m1qf021ngu4lq199qvkn02knoxn].[none:freq (nama_10r_2hhinc.RData):nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:freq (nama_10r_2hhinc.RData):nk]' />
+              <groupfilter function='member' level='[none:freq (nama_10r_2hhinc.RData):nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.0m1qf021ngu4lq199qvkn02knoxn].[yr:TIME_PERIOD (nama_10r_2hhinc.RData):ok]'>
+            <groupfilter function='member' level='[yr:TIME_PERIOD (nama_10r_2hhinc.RData):ok]' member='2021' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0m1qf021ngu4lq199qvkn02knoxn].[none:freq (nama_10r_2hhinc.RData):nk]</column>
+            <column>[federated.0m1qf021ngu4lq199qvkn02knoxn].[yr:TIME_PERIOD (nama_10r_2hhinc.RData):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <lod column='[federated.0m1qf021ngu4lq199qvkn02knoxn].[none:NUTS2_name (nama_10r_2hhinc.RData):nk]' />
+              <geometry column='[federated.0m1qf021ngu4lq199qvkn02knoxn].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0m1qf021ngu4lq199qvkn02knoxn].[Latitude (generated)]</rows>
+        <cols>[federated.0m1qf021ngu4lq199qvkn02knoxn].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{AD327D37-FF64-4260-8EDA-774862904D4E}' />
+    </worksheet>
   </worksheets>
-  <windows source-height='51'>
-    <window class='worksheet' maximized='true' name='Sheet 1'>
+  <windows source-height='72'>
+    <window class='worksheet' name='Sheet 1'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1176,6 +1620,83 @@
         </highlight>
       </viewpoint>
       <simple-id uuid='{EB83FB30-D3CA-483A-93C5-872FAF34BFEC}' />
+    </window>
+    <window class='worksheet' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[yr:TIME_PERIOD:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[avg:values:qk]' type='size' />
+            <card pane-specification-id='0' param='[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[sum:values:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[none:city_code:nk]</field>
+            <field>[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[none:city_name:nk]</field>
+            <field>[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[none:indic_ur:nk]</field>
+            <field>[federated.0wyeh3p1rd106b1g75pnn0q7e2uf].[yr:TIME_PERIOD:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{50541DAF-8670-4F43-B99B-D6104843A61A}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.0m1qf021ngu4lq199qvkn02knoxn].[yr:TIME_PERIOD (nama_10r_2hhinc.RData):ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0m1qf021ngu4lq199qvkn02knoxn].[none:NUTS2_name (nama_10r_2hhinc.RData):nk]</field>
+            <field>[federated.0m1qf021ngu4lq199qvkn02knoxn].[none:freq (nama_10r_2hhinc.RData):nk]</field>
+            <field>[federated.0m1qf021ngu4lq199qvkn02knoxn].[yr:TIME_PERIOD (nama_10r_2hhinc.RData):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{4841B069-481F-4F62-B292-C6C01A915389}' />
     </window>
   </windows>
   <thumbnails>
@@ -1732,6 +2253,523 @@
       AZKAOaVF78cvPTfNZhODwWBuEB+/B2bqTrfbVcE2/VymIJuMUpPBNjgbNgywAiRRdrtd5YmR
       NQS6lG82m0jTFMPhEFmWzfXjZIljEARz0p2/dY9Rs9nc1PaeMzYMsAam0ylc10Wj0VDEqVeQ
       SXAFmE6nudgA4TiOmiJvigDL1YV1whucL/5/zlk7qF7LR0cAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 3' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAgAElEQVR4nO2dWXPbyPW3f40d4CpqsSxr4iSTTE2+/4fIVeqtXKRSUzXlmXHGskxJXEAQ
+      awP9XtCn1QBBipKosfRXP1UqSVwAWu7TffbDoigSlmVBo3mNWJZlwXXdb/05NJpvgvGtP4BG
+      8y3RAqB51WgB0LxqtABoXjXa/aP5QxBCAACqqgJjDFVVwTAMMMbAGPtmn0sLgObJEUKgLEss
+      FgtwzgGsBMFxHAgh0O12Ydv2vQVBCPFo4WFpmgrtBtU8FbT4wzBEnuetrzFNE8PhELZt33kt
+      AMg5xyLO4JmAbdtwHOfBgqAFQPOkFEWBKIqQ57lcwG2YpgkKyAoh5BdjDIZhoCxLlGUJy7KQ
+      VwwzbmJoV/icGvi+tzpRbNuG67owTXNn1UoLgObJKMsScZLiJuEIRNaqslRVJX+O4xhBEOx0
+      bdV+KMtSCpdpmrBtG4ZhwDRNOI4DNdOB7l9V1UqgHvuP1GgIWoSMMQghcDmPMc8qnHcY4riS
+      z6kYhiHVpKIo5Hu3wRjDXDhglUCP1U8WOinUe5mmiSzLYNu2FIaiAq5yU58Amv1ARi5RVRV4
+      WQJgENXtDm0Yt553WqBCCFRVhTRNYVkWdslNMy0bVVVBVGXr83Q6CCEQRRGyLMNgMIBpml+f
+      N1AalhYAzeMpyxLL5RJxHANATf8mXb75OP1OryFVKAxDeJ73IK8QQYuertvpdDYa2FoF0jyK
+      oigwmUy2qi20kJsLuu093W4XcRyjLEv4vn/vz1NVFa6urnB2doYsy6RxvAktAJoHU1UVwjBs
+      VW+Ibbs4NyxYooRoGMJlWaLX69UEZD6fwzRNeVIMBgOUZYkkSaQRTMbv2dkZqqqCZVmIoghJ
+      kkjPkOd5ihrEtABoHgdFdlWdWwghF+u2YJUQDAxApSz0IAgQxzE453Lnvr6+xnA4hGVZ8lpR
+      FKGqKvT7fRlZJuEoyxKO4yDPc/R6vZqqFccxDMOA7/urz6ZtAM1DEUKAc44wDOUuLISAYRi4
+      5C5GFodVFQDaT4cmtIA55/j06RMODw8hhIDv+62uTNWleR/iOIZlWSuv0L3eqdEoMMak3x1Y
+      2QPAakGeWDmwwUND2LYt30PXI5fo+fm5VFWakGp0l7uUrqn+bNsr79GHDx/g+74+ATSPp6oq
+      xHGMKIrWnttkAFuWJfOCCPLeMMbWAmKqN4lOk11jBm0qmBACSZLodGjNfkjTFK7rwnEc+Zhq
+      G6hQ9JZo6u+dTmft+pQSoUaAhRBghoHccOTjbe9rg4RMC4BmL7iui263W3tMzelRd+rm70RV
+      VbX6dNO0kJnemv1AAkDpDsvSBPsqAE0hadJ8XtsAmkdjGAa63S445yvD2HBgCQ6G+kJvBsfa
+      FmiWZeCcw7IsuB6DZ9SNXPU9hmEAQuDYXtkR7Kug0LXVAFwTekyfAJq9IHdUy0JUmRDs1teu
+      IpgBsNuFSouVvgaDAfr9PuI4BgMgSr52n7brtn0W9eeNJ8KD/8UaTQNSQU6cEibKtR1YCIEb
+      biNnVk2NUX+m9IV+v48sy9busYvnh9hkF9Rec49/n0ZzJ9NMYJwZUm0h16NpmhBC4NjK4YHX
+      hEKFGSbG+Srn/4/wTmoB0OyVjlni0LktTvF9H1++fIHrunKH3+bHD7mB/3fF8aVwtu72mwzp
+      bdDpQhFqQBfEaPZIkiQyFjAej2FZFsqyRBAECMMQ79+/r6k16ilBHp1wEWFhdPCmY0IU2doi
+      b3qEdokwA0DFDEBUgHJPIYT2Amn2i2EY+PLlC96/f1+r1FosFjAMA67rygAY5fAAq8DY5eUl
+      LMvC6dDH+PMl/vSnP0nP0qZ64l0L46eFCd9kCIz6+/QJoNkbSZLg119/xbt375BlmUyKu7q6
+      wunpKRhj+PDhg8z0HI1G8DwPZVliNptJYzhJEriuiyRJMJvN8I9//EPWGgDtXp42mhVq6mPy
+      vVoANPuiLR3CMAzEcYwvX77AcRx0Oh2MRiMwxvDzzz/LXCIhBL777jtwfmsgm6aJ+Xy+ytlR
+      Mk3pusDdAkDJecB60pwWAM1eUQWAc47lcgnTNOG6LizLgmmaMi+/LEv5O+USURozYds2xuMx
+      zs7OZM1w07ukplTsQtM1qwVAszfKssR8Psd0OgXnHIeHh3LBRlGEoigwGo1avTfL5RLdbrf2
+      nGEYSNMUs9kMpmni+PgYpmmiKAopKM2EuiaxMJFVDAcmb72vNoI1eyWOYwyHQ3DOaypHt9uV
+      PYLIGG6qMc0FWlUVgiCQRS2//PIL/vKXv8jduyzLmiHdVnLpsQqOyVprBnQukGavGIYBz/M2
+      emZs20aSJAiCoPZ8WZYbi1o45+CcS6Gpqkp6hL5wF4eOgI165VnN4BXlWrBLtRt0IEyzV2zb
+      xmw2Q1mWMvMyDENUVdW6+IGVetTMJFVxXRfX19d4+/ZtTeV543A4X1Mu6ASpBbnuMI51HECz
+      VyjHvtvtYrlcykXW7/cxnU5lsXuzvHFTQyxqZDWZTGQlVy0zVFTAHS7R5jWbbVq0AGj2Crk1
+      e71e7fHRaCRPAxXOuSxQB1ZqVFVVME0TcRzj8vISg8EAb9++lZ4gYpedXv25TRi0AGj2RpZl
+      +Oc//wnf9/H9998DgPTDL5dLWYieZRkMw5CL2TAMWJaFq6srpGmKs7MzCCGwWCzw448/oigK
+      2c2Buj3sgmoTqCeMmj6hBUCzN6iiqyxL/PzzzxBCwHEczGYzmRFqWRbOz88xmUxwc3MDAPjb
+      3/6G//znPzg4OAAA+L6PT58+4fT0FMvlUl5f7fsJbK8JaKPpdaqqShvBmv2Spin+/Oc/I89z
+      +L6PxWKBwWCA4XCIk5MTlGWJLMtks1ohBC4vL+H7PvI8R5Zl+Pe//40gCLa2O6FFvBQ2sKMg
+      UNIdoKhPOhCm2ReccywWCziOg8lkguvra5ycnMiAVhiG6PV6WC6XGI1GuLq6wtXVFc7Pz1GW
+      JYbDoUyZBiDdnm2QAFwXFg6dEmxDanRT9ychkLEDLQCafROGIdI0lQsvDEMwxqSrkxbhdDpF
+      nucYjUY1z5Dv+/j48SPOzs5qRm8bd5VIthm/Hz58kN2itQ2g2SuqwSmEQFEUa53dqKOcZVkY
+      Doet17Asa6eCl2YArO09TRcrxQs451oANE9LWZbwPK/2GKkvm3b3bV0j2iCVplVgDBPjwsKJ
+      lcveoGma4u9//ztyp6eNYM1+4ZwjSRL5O+X3E1Sonuf5xkEY28odm9FeALXTYu29okLfvO1b
+      ats2RqMRfv/9d5hCj0jS7BEhBG5ubmS6Mxm06k6e5zmWyyU6nQ76/X7rQlcNYfXaaZrK00Rt
+      p6KWWTbvJ6oKDirZgTpNU7x9+/br67g+ATT7xXEcRFGE+Xwu9WzK/8nzHHmey+F1tKgXi0VN
+      HaJ0Z9q1q6qS8wG+fPlSu19Tt6fvamt2erwsS2mc685wmr3DOUdRFOh0Ouh0OphOpyiKQi64
+      TqcD13UxnU4BANPpFEEQIAgCcM6R5zmCIJCDLY6OjpCmKaqqwmAwAGMMh4eHKIpCVo51Op2t
+      6hKRpinSNMXh4WE9IKbdoJp9kSSJHJRHC59ap6t5O5PJpNZLtCgKeTLMZjNwzmsD7dRRSZ7n
+      yflfeZ6jLEv0+30kSSLngakpD3RyUEpGkiTyZ8/z9Amg2R/qjksLvxnIEkLAdV25UKm00bIs
+      WQj//fffI03TWvcIQo0gkxEdxzE8z0OapjLFIc9zcM5lIU6WZej1euh2u7WCGm0DaPYC7arq
+      /C0iSZLa8IzpdLrmyaGFOxgM8PHjRzklclt7c/oitYlqkuM4XlWDeZ4spCEVSsU0TX0CaPbH
+      eDxGmqYwTVPu3o7jyOL12WwGy7JwdHTUurgpNXqxWKy3TGypF1CjwIZhIAiC2myByrCQVQw+
+      4xsFSQuAZi9wzuWADMMwZBljFEXodDoYj8c4Ojq68zpVVUkXqmmaG7s+qAJEEWeqEZYqDhja
+      MolI9cqEPgE0e4DcmaqhyxiTLtDZbLbT4lcDZM3UZ9WwJQEjqE5AnS3AGIMlOEwIAOupEIIZ
+      mBaGFgDN4xFCyGCUaZqIokgOwEvTVBrE8/lcjjUFII1YqgAzDANXV1d48+aNHHCt+vYpQEaL
+      XzWw6cRJ01SOQW1+RoIxBgaBU6fQAqB5PFSrS3p6nufodDqyE9xsNoMQAkEQYLFYYDgcIs9z
+      OV5VVVvIOFarvmzbBudcvrYJdZWgjtRURKMKTy06rKZRPMlfRPOqUKOupI6oDIdDRFEE13UR
+      BAHG4zEODg4wGo1wc3Mj6wHoWs2Sx6IoWhPeVCOYHqe+os2coKZ6JlWqPf8tNK+MqqrkaNM0
+      TXF1dQXXddd26k6nI1sb9vt9qRYNh0P89NNP0o7I87zV25OK9pnBQD0BzvM8GVhT37/pffoE
+      0DyYsiwRRZFMgTAMY83YJdUIWC04qgum5xzHwWg02triUAgB26iADeUBzd3d930Ze6C0iX6/
+      v/a5AH0CaB6IEALX19eYTCbgnCMMQ6l6qK+h77TgKC2BIK9NHMcbJ8MDANsydV4dfUoMBgOp
+      cjVTfdRkOC0AmgfjeZ50XXY6HdkZutmisKoqzGYz6ZlpGqS9Xg9RFMFxnHt3eqBuE+r7LMuS
+      uUhkO5CQNOcEawHQPBhqXhsEgczFAeo6Oakh1PKE3J0qZVliMBjg06dPMi9oG3LxKoaxOlOA
+      7l+WJabTqYxRtBXTaAHQPAjVLUkL+ujoSPYBJZWH9Hwyeh3HkUYy7caUxem6Ln7//fdaX9Gm
+      eqPmAAF1lyZ5nyiINp/P5UAOem3TO6SNYM2jkF2Wv3Z5ODg4qEVwPc/Dzc0NkiTBwcGBFAjT
+      NDEej+F5nvQQHRwcyEKYpirUViUG3AqAaltQ9zhKhFON5NpnN3QqhOaBNNOcqb1hWw8e27Zl
+      IQu5KIuiwGAwkPMCKPencLooIRCg7hXKYMJl5ZoQUBYp51wGwigqbds28jyXp8862g2qeQBV
+      VUl9H4Ds+Um599fX1wiCQL6WClhIFaHHgdXgjPF4LEcmHRy/ab2nIzgE1oveVXuCBIxOEdd1
+      1xZ/rYWKbo2oeQjqVBbbtuH7vuwGR0XneZ7D8zwMBgOcn5/X+v+op4dpmnKq5Js3b+AYgNWS
+      w0n5PZv6/qjXnk6nuLy8XItIA7cuUBIcfQJo7g1jDMPhsFaWmCSJnP9Fi7+5AFX/O/1OBEGw
+      luWp0jx11GvSZwKAyWSCw8ND+L6P6+trHB4etl5L/lt0TbDmMeR5jvl8Ln9njCGOY2RZJqOy
+      qhqiqiwkENQwt9vtyuHa6q7e3OHbKMsSi8VibQgfqV9qoYx6XX0CaPaC4zjwfV+6QKmkkQJc
+      bZ4dxpgcpH18fFzz0d9VEdYshqEeo+pzAORQbopUN1s06hNA8yiaC5XqcmnBJ0kCy7JkQ6vm
+      Dk6eo6urK2k7tC1+td+o+hiwar7bzPVpfkY6mcqylJ4hfQJoHk0zrYFzXtvFfd8H5xzj8Riu
+      68I0TXS7XdnXJ8syJEmCLMvkLAFKrmurG970mPoZ1opfvj4fBIEs3pFVY3v/i2heNc00h6qq
+      ZEsS8uJQu3RKVzg4OIBlWfj8+TPCMIRhGLIvUFshC+X4xHFcS4loyyNSBYK+kxqkVSDNXhFC
+      YD6f17w15JVR0xnU+l7Kz6Ea4iRJ4HkewjCEZVno9XprU10AyEEcNzc3ODw8XPM40agmiko3
+      TwZCnwCavdLW8ryZ5twUBMoCvbm5wWKxwA8//CBVlPl8Ds45PM+TPUarqoJlWXAcB2/evGlt
+      mUJeKPWezdMJ0G5QzR4pyxI3Nze344cYk5HZtsVHuK6L//73v/jrX/8K13WRpqncuclTlGWZ
+      7PxGPUGB7a3UAQCG+TXaK7QAaJ4WIQSiKJJGLU2HPz4+Xm9LoiSxUQrDpplgm5pitXmGCMdx
+      UBQFPhcOjl0BB+0FNVoF0uyVxWKBxWIB0zTR7/e3dm8mG2AymeDdu3etkV6gPSag/twWNKOU
+      6nOPbID2z6sFQLNXer0eHMeREV2qxiLUHdt1Xfz22294//49kiRpTZFQ2aVXaJOt6hG0AGj2
+      DLU2VBdeszCeoF16U/vDJpvSI9p+3xUtAJq9ou72jDFZnKI+JoRAkiS4vr6WAtCWKqHSrAh7
+      KLIbxNfPqdOhNXtlPp/Lie/UEZqiw0VR4OLiAovFAt1uF+fn59Kl2abXq7W/bZ0fHoMMiu3l
+      ahoNVioN7fiWZSFNU3S7XSyXS9kU6927dzJARS7ObUZtGwIMV4WFrlkhMHZTn9Trkx2iUyE0
+      e4V6dFKqAeXeUACLcoWA24XYbIGeMRsRZzg08zX3Jv3OmYWiAnxHbGyWtQlytdKppOMAmr1A
+      MYDlcrmmwgD1LFDafW3blkIi3ZeVQJrnKNKktb6Yfm67f5O7coMMQ7dH1+wJamrr+74clEHN
+      qcgzpM7zpW4QbYs08D2U3Q4Wi4WMDeykGrXUCzSfbwbk2GKxEDStT6N5KFQI09TpVUgIqIh+
+      lwUdx7Fsd74tnaItgtxspdJ6SiyXS0EV/BrNcyTLMtk+pS1mcGc+EG6FgdQt+tnY1pBUo3kO
+      mKaJWKzPC6NZBG0d39TySjWGQN/pS9sAmhcBrwBmGbjODYwsDobbYptm0cumKrKr3ITJgBP3
+      dpCHFgDNs8c0TYxchoILuAbA8HVmwNcZYqpxDbTr+jeFibgE/j7y0PVvB3joSLDm2cMYAzds
+      5MJA17jtG0QRZ/I0qRiGgQgOKmZgyk1cJsDbrl1b/ICOBGteEL/FBt56QIB61VlT7TFNE77v
+      YxKV8AMPAYDjrsCg46+rRzoQpnkJCCFwNV8izDj6bJVcp1aLkZ7vui76/X7NBbrN3apVIM2L
+      gDGGo36AN8Gt15LaMKrenU6nU4sY3xVr0CqQ5sVgGAa63a5c+LUen6YJ27LunC6zds19f0iN
+      5ilhjKHX62E4HMLzvFXk2TAw4TaMLVHojdfTNoDmpULeHzoJmnUFu6BPAM2LhYxgy7LAOcfn
+      z5/vTIloom0AzYuEor9pmspiG6o7uA9aADQvDpo7rE6iBFYp1nfVFjfRKpDmxaHq/cBtmrRa
+      fL8rWgA0Lw4qZyRBIL2fxijdxw7QKpDmxUE7fTO/H1h1pSjLcmO1WRN9AmheFJxzGf1ta5sO
+      rOaCRVG0cZ6YihYAzYuimfq8qVvccrlEGIYbu87R6aFVIM2LgVIg1N+31fymaYo8z2WRPtUh
+      UwF/lmVaADQvB875vfuIUot2ar5L45SAr6OWnuzTajR7RAiB6+trzOdz2SWCMdaa/rCtUzT1
+      IZW9gZ7+o2s0+8F1XQwGA7iuiyiK5JywZrsU2um1F0jzf4aiKKT/n0at2rYtbQK1ka5pmsjz
+      HHEc1+YO0OvUGcZaADQvAporrKo3NFuYcw7TNGGaJoQQmE6nMm2asdsB2aZpYrlcIooixHEM
+      13V1OrTm+dPM/SHUZDjbtuH7vuw8R8IArGqEF4sFlsslRqORVJmqqtICoHn+JEmC5XJZ8+A0
+      mU6nCIIAi8UCb9++BbA6NdTpNKr3RxvBmhcBNb+inzcxGo0wm81wcHCAoijunDqjO8Npnj2k
+      4tzl+0/TFGma4vj4uKbeNGlLndAngObZQtmdwG35Y1ump+u6cjTrLqiGtBYAzbNECIHlcimj
+      v2rvT2I8HstJk83n7rq2nhGmedYURVFLfGvq8rPZDEdHR5jP5zAMAycnJ63XMQwDnufJafTN
+      YhrtBdI8O4QQmM/nNS9OUwDKskSSJLjPcJc2NUqrQJpnRVmWsqiF0hzaPDnN4Xp3sWmIhlaB
+      NM8CIQQmk4mcArNLHg/t5s3Xti30TfaBVoE03xzOORaLBYqiQBRFMoXhLopi1SXatm35WFPH
+      V2mOW42iSKtAmm8H+flns5nc9Wki/C7EcSwXf9uYpLb70fM0zFurQJo/HM65TFBT9XjK759O
+      pxBCYDQa1RZ2cwc3TVPu9urgu12pqkoLgOaPgabEp2m6Vter4roubNvGfD6vLeblcgnTNOF5
+      HoDVgp9MJuh0OrU5ANvyhVSoRFILgOZJoWhulmV3em3k6FLDqOn15AaloJht2zAMA77v4/r6
+      GkIInJyc3PsE0LlAmieDyg8Xi8W93JUAZOG6qtZwztHv95GmqQx+BUEA13VRFAXSNJVD8+5z
+      H+0F0uwdIQTCMJRemvu8jwxjEgBKgwiCQE6hVwWDbIMwDGX3h6YQ0HtUe4G+6xPgEdy3Eetr
+      oSzLey/+5vv7/b7086tNcJtRYfq52+0iiiLZ+iTLMmRZhiAIauqU+h5AR4I1e0YIgSiKHvRe
+      dXE3m982PUDNewKQZY95nsMwDAwGg1otMd1DRQvAI9C7fx1a/Jzzu1+8gTAMZSBMjQuosYFN
+      Pv9ut4vpdIqqquSu73kekiRBHMcoimLtBNECsIWiKLBYLKQXYxf32muFFv82F2eSJHdeRx1y
+      1xyBpJ4CTRuAvESe54FsWhIQ3/fR6XTWBusBWgC2QrpkGIaYz+cIw/DeI3heA3me4+rqauvi
+      L8sSVVXJplZtOzgZqpt2eLUrhPqltkdX4wT0nYSq3+8jjuPa9bURvAXTNHFwcCB3/6Yxpblt
+      PbhcLtHr9Ta+jjo3CCHw+fNnvHnzRj6n6v3bfPlq4Qt9tXWKoGs1TwxgFQCjwdpJkmgB2AYN
+      YQuC4Ft/lGeJEEImsZmmuWo09XVCO+3ERFVVsnfP6ekpZrMZhsNhzTilpleEuour92yLK9Bj
+      zWa56jWEELAsC2mawjRNGIahBUDzOGiBBUGANE1hGAayLKvt+IvFAq7ryl49ZVnC931psHY6
+      Hfi+v6bTN6EdX1V7gFVuUVEUCIJg6/tJxfI8D4wxuK6rBUDzOFR/P+36lmUhiiLkeQ7OeS29
+      WdbiWpZMdiuKArPZDJxzDAaD1vtsK4pP01QK0KbFTzTtB20Eax5F0y6iXZw6tZFd0La7U8mj
+      ZVkYDAbgnNe8QG3XbUIqk2qAb/PWkepDn0GfAJpHoerjTWNzE6r3Rj0Zut3umg7f9jNRVRUW
+      iwV6vV7N6N12AjSj91oANA+irWnVLi7itvYmQHu+jtylLUuqSkSWZRBCSJVJ7QV6H7QAaB6E
+      2rQKqLsm2/TwTSqM6gWiNAY1kCWEWJv/yxhDnudb3a5N1M+kG2NpHkVVVYiiSGZqNv33agS3
+      Ocu3DdLJXdeVEyDvSjPp9/s1vb/t+jQrQNX7m9fWJ4DmXlRVhTiOa7N6iaZ78i7UfJ9tyW7N
+      91BxTafT2fg6dcFvQwuAZmdI70/TdC04Bax3XSDaHleT2+I4RpqmcBwH/X5fvrZNGOI4huM4
+      a4E2uk+bmrMNLQCanSF9vC3CSmxbeJtOCM/zar785muoRbphGBt3/aZ/f1e0AGh2grwwpKOr
+      j+/6fmDdRUkLvtfrYTqdYjgcytctl0uZzLZN3Wlb/E1B2tRqRQuAZmfUTM67fO3AKtBl27Y0
+      hJttDtVFSjs8BcZo4bepOsDmPCH1+y5oAdA8iLZoq7qgGWP417/+hR9//BGTyQSMMfi+D9/3
+      pbfHsiyZSFeWJYIgwK+//oqzszNcXl7i9PQUnz9/Rr/fR57ncBwH3W534y6/iW3CqgVAszPN
+      xdZc8ASpG0dHR3K2F/n5f/nlF/i+j/Pzc/z000/44YcfMJlMZOty3/fx8eNHjEYjKSSXl5eo
+      qgrfffddLdbQtvib9cJ32QM6DqDZiWbufXP3VX8nv79hGEjTFMPhEGVZYjwew7Ks1XhSxjAc
+      DuF5Hq6vr7FYLNDtdlGWJc7OzjCZTMA5l31/+v0+Pn/+XLtfG2oZ5S7GsG6LotmJqqowmUxq
+      01ruoi09Ic9z2LYtG1zRhBdKd2CMtU59UavFNnGfvqKEVoE0O0GpD5uq4hhbDaQGVjW4wG2i
+      XFVV0n3q+z6qqkJRFLWBds2Cder72TbalO7X3OEf0qRAC4BmJ2hBlmWJOI5hWRayLEOv10OS
+      JKiqCr1eD7PZbC1GwBiD53lSICiau0nzUEsk6RrbXJq7ZIFuQguAZieokiqKIumJ8X0fSZKg
+      3+/LxT0ajTbm4zenOJJnR4UWu9papZk+3TR0H4M2gjU7QS1FqD6aFqq6swN19+i2nXkwGLSm
+      Pm96ffN69434tl1L1wRrdsZxHHQ6HdlWZBPNaKz6XYUK4MuyXKsC26U2+KGLn4ztq6ur1b0f
+      dBXNq8M0TXQ6HZRlKYtRVHZd+ERRFFJ9anp8hBDIsmytnvixWJaFi4sLWJaF4+PjVZr0Xq6s
+      eRUYhoFutyu7NAO3qgTp6Hf19iGoca36+3K5lBmnjDH0ej2EYbimVj3I2LUs/Pbbbzg5OcHR
+      0RHKslz1EL33lTSvnqY/Xq0G25Ver1erKSiKQnqUTNOE7/tgjMl2Kw+FDO+PHz/i/Py8VnYJ
+      aC+Q5p60RYQfAudcZpZS5Rb1CKLHgFU/0cFgsFPLExVKvbi8vIRhGHj//n1ry3YtAJqdoXqA
+      +1Z+EbVSRMvCwcEBGGOyGKatist1XRk13vWelmVhPp9jsVjg7OwMADbOK9AqkGZnhBBIkuTe
+      i1+1E5pfVORCc7+aO7xhGIiiCOPxeOf7fPr0CYZh4Pz8fOvcYEALgGZHVM/MLuyiqmwqVFdx
+      XRdVVeHo6Gine/7vf//Du3fv0Ol0dvqsWgA0O0FdoHfKsNwS2LpvMIsS5e4sbrcsXF9f47vv
+      vpMd53ZB2wCaOxFi1eCWc34v/Z86RasGrJrHcx+DdhuWZWE8Hsv2J/cZZKIFQLMVippuK4Tf
+      RFut7rbF3FZgD9ymObfNDaOaA9M0MRqN7j2eSQuAZitVVWE6ncK2bemipIWaZRk8z1tLTWgz
+      drdhGIYsmAmCQJY+XlxcoCgKZFmGJElwfHwMIVYjWDnnuLy8xHA4lEU2dELdB10Qo9mIEKu5
+      X8vlUnZooOJ127blADq1RWEzVXlTgQqpK8BqMN5yucTZ2RmSJEGWZYiiCMfHx5x7yRcAAATC
+      SURBVDJblE4ixhgGgwFM04RlWTKn5/j4GJPJZO2e9Dk3oQXgBfCY5K/HkOc5ptNp6/3pd/Kv
+      00LdpSbXsiyEYYjpdArHcRAEgWyPTqj2Q/Oe6mNUddYcpEevo3nBm3KKtAC8ANoGRD8llJow
+      n89rqc5tejxjq/493W63do22z0s788XFBbrdLg4ODuTwvKdECIE4jlt7C2kb4JlDwSfXdTcO
+      j9j3/fI8x3w+r+2qbapMs3Kr+bgKzRCbTCY4Pz9/9DT5+0B1xm1oAXimkN+dfO9/1KA+6vwM
+      3O7Ym04fwzAwm83kzK02SHi+fPkCx3Fwfn7+qEHaD8WyrNYJNFoAnil5nq/GeG7pjrZvOOdY
+      LBZrXdzUzgz0s3oibPp85KKcTqc4PT0FY+ybLH5gNcSPyjlVXr0A3FV99K2oqgr9fh+2bT/5
+      56JCd7XxreruBG6N0uZn6XQ6SJJEdoIgSOUJwxDv3r0D5/zBmaP7ou3+r14AqqrCzc0NDMPA
+      aDS6d1+Zp4Dahzz1wifjUB00od6z6VnZ5NFZLBZSDaJ8+4uLC3ieh9PT02+26zehYJr6f/zt
+      /7efARRpfA6LnwJPSZI86X3Ix9+2+NXKrrtgbNXhLQxD2dBqPB7j/PwcBwcHz2bxAys1qPl3
+      /fb/498YwzDguu6DFj/nHGmars2weijkfnxq1yAt/qYXhha+uvh3jeT2+33EcSwLUZqFM8+B
+      thSOV68CMbbqb7PJTbYJzjnCMJS1q/uAPDDUV/Mp2LT4Ve6TxqC+x3Vd2UL9uUIqGv19X70A
+      ACs99i4fe1mW0pDjnCNJEti2jcFgsDddnWZfAesDqPdFmqYbF/9DszUJx3HWbIrnRqfTQRiG
+      chSTFoAdYYzJDgXkDaEux/uAuiEAD2vyuu269J1cq9t47L+HOjk8ZxzHka0ZtQBsgPrfOI4D
+      y7JgGAY8z5NHPGNs4y7d7F+/y6KiBlG+78NxnLU2gg+BcmGm0+nGPpxPwR8RsX4MnuchDEMt
+      ANvgnCOKIvi+L3V83/eRZZkc5NC2SIUQWC6XMojV6XTW+l+qVFWF5XIJ0zTlsfxYyJhOkgRl
+      Wcquzs/By/Vc6HQ6iKJIC8AmHMdZq0M1TVO26NgUoKIGT4ZhIOIMFzcJ/vHG2rj4GGO1sT/3
+      QQghPUacc5Rl2epBGgwGNb1Xc5tFqgVgA20ekG1qD1EUxapoo7JRCOB9f/vO+1CdO89zmbOz
+      C9SHcx+q1f8VTNN83QJAgxlIpdkHvu+vBr+VBWzbhu/tV/cm/3pzWPVddLtdhGEoo6GUH5/n
+      OfI8R1mWawXrQoidXLxtOfsvAcbY6xaAoigQx/He/PjAalehmVi7dDO4L3EcIwxDaWirQyTU
+      fB11Xhcd947jSB/4xcWF9GSRoa9eB1j9fT5+/IiDgwMAt67ZtvsSWZY9qpXhH4lpmrog5qWR
+      pik453d2P2CMySj1Y3V/VeD6/f7WFAkhBC4uLvD27dtnlQaxiVd9Arw01M7Ju/S+CcMQg8Hg
+      0YEp2iCzLMPNzc1aSrGK2jn6JaAF4AVxnxwhWvz7hKrS5vN5bcBdp9N59r7/TbzMT/1Kuc9O
+      /lQ+f3IFqyyXS5RlCc/zYJom4jiWtsZzS4hr8v8BjEoITAt2SywAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 4' width='192'>
+      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
     </thumbnail>
   </thumbnails>
 </workbook>

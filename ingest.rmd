@@ -13,7 +13,7 @@ for (el in PAQUETES){
 
 load country names, sheets, dictionary and create function to load and store data
 ```{r}
-# Path to the dictionary fil
+# Path to the dictionary file
 file_path <- paste0("./dictionaries/","decoding_dict",".xlsx")
 
 # Get a list of all sheet names
@@ -33,25 +33,33 @@ EU_Countries_names_dict<- setNames(EU_countries$country_name, EU_countries$count
 
 #function to load and save country data
 load_data_country <- function(series,alias,dictionary,sheet_names){
-  #load data
-  data <- get_eurostat(series,
-                    filters=list(geo=pull(EU_countries,country_code))) %>% 
-  filter(!is.na(values)) #filter out NAs
-  #recode columns
-  for (sheet in sheet_names){
-
-    if (sheet %in% colnames(data)){
+  try({
+    # Load data
+    data <- get_eurostat(series,
+                         filters = list(geo = pull(EU_countries, country_code))) %>% 
+      filter(!is.na(values)) # Filter out NAs
+    
+    # Recode columns
+    for (sheet in sheet_names) {
+      if (sheet %in% colnames(data)) {
         data <- data %>% 
-        mutate(!!sym(sheet) := recode(!!sym(sheet), !!!dictionary))
-        ##!!! splits a vector into individual arguments for a function
-        ## !!sym() is a way to convert the string sheet into a symbol that dplyr can understand as a column name.
+          mutate(!!sym(sheet) := recode(!!sym(sheet), !!!dictionary))
+      }
     }
+
+    save(data, file = paste0("./data/country/", alias, ".RData"))
+    print(paste0("Series ", series, " ", alias, " loaded"))
+  }, silent = TRUE)
+
+  if (exists("data")) {
+    rm(data)
   }
-  
-  save(data, file = paste0("./data/country/",alias, ".RData"))
-  print(paste0("series ",series," ", alias, " loaded"))
-  rm(data)
   gc()
+  #error mesage if problem loading a series
+  if (inherits(last.error(), "try-error")) {
+    message("Error in series code: ", series)
+    return(NULL)
+  }
 }
 ```
 
@@ -60,8 +68,9 @@ loading country data
 statistics<-read_excel("./loading_statistics.xlsx",sheet="country" )
 
 for (ii in 1:nrow(statistics)) {
-  load_data:country(statistics$code[ii],statistics$alias[ii],dictionary,sheet_names)
+  load_data_country(statistics$code[ii],statistics$alias[ii],dictionary,sheet_names)
 }
+statistics$code[ii]
 
 ```
 create geo and time table for the star schema in countries
