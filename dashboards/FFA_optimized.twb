@@ -66,7 +66,7 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='geo_dates' name='stat-direct.1h5mfn71asfr8y15i8nyy0elq92p'>
-            <connection batch-size='' class='stat-direct' directory='C:/Users/franc/OneDrive/MADS/IST737/project/data/city' encoding-error-limit='' filename='geo_dates.RData' password='' server='' source-charset='' />
+            <connection batch-size='' class='stat-direct' directory='C:/Users/franc/OneDrive/MADS/IST737/project/dashboards/data/city' encoding-error-limit='' filename='living_cond.RData' password='' server='' source-charset='' />
           </named-connection>
         </named-connections>
       </connection>
@@ -2293,6 +2293,23 @@
               <bucket>&quot;At risk of poverty rate (cut-off point: 60\% of median equivalised income after social transfers)&quot;</bucket>
             </map>
           </encoding>
+          <encoding attr='color' field='[none:Body Mass Index:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Normal&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Underweight&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Pre-obese&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Overweight&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Obese&quot;</bucket>
+            </map>
+          </encoding>
           <encoding attr='color' field='[none:Number of portions:nk]' type='palette'>
             <map to='#4e79a7'>
               <bucket>&quot;5 portions or more&quot;</bucket>
@@ -2319,23 +2336,6 @@
             </map>
             <map to='#ff9d9a'>
               <bucket>&quot;From 1 to 149 minutes&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:Body Mass Index:nk]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;Normal&quot;</bucket>
-            </map>
-            <map to='#59a14f'>
-              <bucket>&quot;Underweight&quot;</bucket>
-            </map>
-            <map to='#76b7b2'>
-              <bucket>&quot;Pre-obese&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;Overweight&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;Obese&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -7862,8 +7862,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2700' minheight='2700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='142' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='141' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='144' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='143' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone fixed-size='280' h='52625' id='106' is-fixed='true' name='BMI_map' w='41600' x='800' y='1000'>
                   <layout-cache minheight='234' type-h='scalable' type-w='fixed' />
                   <zone-style>
@@ -8126,8 +8126,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1400' minheight='1400' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='102' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='101' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='104' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='103' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone h='14875' id='35' mode='dropdown' name='bad_habits_map' param='[federated.0dqo4gp1bw9vp81gbj4w30ulh33x].[none:Frequency (drinking.RData):nk]' type-v2='filter' values='database' w='16000' x='83300' y='375'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -8319,8 +8319,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='171' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='170' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='173' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='172' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='45125' id='136' is-fixed='true' name='beds' w='76300' x='1900' y='1750'>
                   <layout-cache minwidth='202' type-h='fixed' type-w='scalable' />
                   <zone-style>
@@ -8480,8 +8480,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1500' minheight='1500' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='144' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='143' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='146' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='145' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='49000' id='12' is-fixed='true' name='income top' w='49200' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -8679,8 +8679,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='110' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='109' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='112' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='111' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='81500' id='9' is-fixed='true' name='job_relations' w='52066' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -8871,8 +8871,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1000' minheight='1000' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='113' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='112' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='115' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='114' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone h='6500' id='97' mode='dropdown' name='over_inmig' param='[federated.0dqo4gp1bw9vp81gbj4w30ulh33x].[none:country_name:nk]' type-v2='filter' values='database' w='98400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -9045,8 +9045,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='125' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='124' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='127' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='126' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='79125' id='9' is-fixed='true' name='povery_transf' w='49200' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -9213,8 +9213,8 @@ Satisfaction with personal relationships is higher across the boeard, especially
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='850' minheight='850' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='146' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='145' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='148' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='147' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone h='6500' id='9' mode='dropdown' name='satisfaction_rating' param='[federated.0dqo4gp1bw9vp81gbj4w30ulh33x].[none:indicator:nk]' type-v2='filter' w='16000' x='83200' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -9399,8 +9399,8 @@ Satisfaction with personal relationships is higher across the boeard, especially
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='131' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='130' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='133' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='132' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone h='6500' id='87' mode='compact' param='[Parameters].[Parameter 4]' type-v2='paramctrl' w='50100' x='49900' y='0'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -9576,8 +9576,8 @@ Satisfaction with personal relationships is higher across the boeard, especially
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1450' minheight='1450' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='112' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='111' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='114' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='113' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='49000' id='3' is-fixed='true' name='unempl_educ' w='41200' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
